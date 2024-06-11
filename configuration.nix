@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   wsl.enable = true;
   wsl.defaultUser = "nixos";
   wsl.wslConf.network.generateResolvConf = false;
@@ -86,5 +85,5 @@
     };
   };
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }
