@@ -14,6 +14,14 @@
         };
       };
     };
+    git = {
+      enable = true;
+      extraConfig = {
+        core = {
+	  editor = "nvim";
+	};
+      };
+    };
   };
 
   home.stateVersion = "24.05";
