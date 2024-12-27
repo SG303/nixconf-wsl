@@ -55,6 +55,7 @@
     nikto
     speedtest-cli
     xclip
+    python312Packages.pip
   ];
   programs = {
     neovim = {
