@@ -21,6 +21,11 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    (python3.withPackages (ps: with ps; [
+      pip
+      invoke
+      toml
+    ]))
     neovim
     wget
     git
@@ -55,8 +60,9 @@
     nikto
     speedtest-cli
     xclip
-    python312Packages.pip
+
   ];
+
   programs = {
     neovim = {
       enable = true;
