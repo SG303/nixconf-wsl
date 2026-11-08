@@ -1,13 +1,24 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   wsl.enable = true;
   wsl.defaultUser = "nixos";
   wsl.wslConf.network.generateResolvConf = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  networking.nameservers = [ "9.9.9.9" "1.1.1.1" ];
+  networking.nameservers = [
+    "9.9.9.9"
+    "1.1.1.1"
+  ];
   networking.hostName = "nixos-wsl";
 
   time.timeZone = "Europe/Zurich";
@@ -21,11 +32,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    (python3.withPackages (ps: with ps; [
-      pip
-      invoke
-      toml
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        pip
+        invoke
+        toml
+      ]
+    ))
     neovim
     wget
     git
@@ -70,11 +83,11 @@
       defaultEditor = true;
       configure = {
         customRC = ''
-        set number relativenumber
-        inoremap jj <Esc>
-        set bg=dark
-      '';
-      }; 
+          set number relativenumber
+          inoremap jj <Esc>
+          set bg=dark
+        '';
+      };
     };
     zsh = {
       enable = true;
@@ -87,7 +100,7 @@
           "git"
           "history"
           "colored-man-pages"
-          ];
+        ];
       };
     };
   };
