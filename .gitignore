@@ -1,0 +1,8 @@
+# nix build output
+result
+result-*
+
+# Local secrets
+.env
+.env.*
+!.env.example
