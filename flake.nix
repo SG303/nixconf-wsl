@@ -9,24 +9,34 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }: {
-    nixosConfigurations = {
-      nixos-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          { nix.registry.nixpkgs.flake = nixpkgs; }
-          ./configuration.nix
-          nixos-wsl.nixosModules.wsl
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-wsl,
+      home-manager,
+      ...
+    }:
+    {
+      # `nix fmt` formats all .nix files with the nixfmt from the pinned nixpkgs.
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      nixosConfigurations = {
+        nixos-wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            { nix.registry.nixpkgs.flake = nixpkgs; }
+            ./configuration.nix
+            nixos-wsl.nixosModules.wsl
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
 
-            home-manager.users.nixos = import ./home.nix;	  
-	  }
-        ];
+              home-manager.users.nixos = import ./home.nix;
+            }
+          ];
+        };
       };
     };
-  };
 }
