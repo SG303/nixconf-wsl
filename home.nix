@@ -4,22 +4,24 @@
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
-
   programs = {
     ssh = {
       enable = true;
-      matchBlocks = {
+      # The old home-manager defaults match OpenSSH's own defaults, so opting
+      # out of them changes nothing and silences the deprecation warning.
+      enableDefaultConfig = false;
+      settings = {
         "github.com" = {
-	  identityFile = "~/.ssh/nixos_wsl_key";
+          IdentityFile = "~/.ssh/nixos_wsl_key";
         };
       };
     };
     git = {
       enable = true;
-      extraConfig = {
+      settings = {
         core = {
-	  editor = "nvim";
-	};
+          editor = "nvim";
+        };
       };
     };
   };

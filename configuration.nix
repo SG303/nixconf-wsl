@@ -29,7 +29,7 @@
     neovim
     wget
     git
-    du-dust
+    dust
     zsh
     curl
     nmap
@@ -49,14 +49,14 @@
     tshark
     arping
     tcptrack
-    slurm
+    slurm-nm
     ethtool
     inetutils
     ngrep
     bmon
     darkstat
     jnettop
-    dstat
+    dool
     nikto
     speedtest-cli
     xclip
