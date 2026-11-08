@@ -39,4 +39,4 @@ nix fmt                      # formats all .nix files (nixfmt)
 
 ## License
 
-[GPL-3.0](LICENSE).
+[MIT](LICENSE).

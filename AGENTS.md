@@ -33,6 +33,5 @@ No releases or tags. I apply `main` on my WSL instance.
 
 ## Deviations from baseline
 
-- `license`: GPL-3.0 instead of MIT.
 - `dependabot`: Dependabot cannot update Nix flake inputs; I update them with
   `nix flake update`. Dependabot only covers GitHub Actions.
