@@ -6,6 +6,9 @@ My NixOS configuration for WSL (Windows Subsystem for Linux): a flake with
 network engineering workstation (nmap, tcpdump, tshark, iperf, mtr, …),
 Docker, zsh and Neovim.
 
+> [!NOTE]
+> Personal project, built with AI coding agents under my supervision. Review the code carefully before you use it.
+
 | File | Content |
 | --- | --- |
 | `flake.nix` | Inputs (nixpkgs and home-manager release 26.05, NixOS-WSL) and the system `nixos-wsl` |
@@ -36,6 +39,12 @@ Moving to a new NixOS release means changing the release in the `nixpkgs` and
 nix flake check --no-build   # evaluates the configuration
 nix fmt                      # formats all .nix files (nixfmt)
 ```
+
+## Status
+
+Personal project, built with AI coding agents under my supervision. There is
+no support and no stability guarantee; review the code carefully before you
+rely on it. See [LICENSE](LICENSE) for the warranty terms.
 
 ## License
 
